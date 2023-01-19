@@ -1,23 +1,23 @@
 #! /bin/sh
 
-start() {
-    pgrep -x "$1" > /dev/null || $1 >/dev/null &
+restart() {
+    pkill "$1"; $1 >/dev/null &
 }
 
 nvidia-settings --load-config-only
 numlockx
-start /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-start nm-applet
-start blueman-applet
-start dunst
-start birdtray
-pgrep -x kdeconnect-indi > /dev/null || kdeconnect-indicator >/dev/null &
-pgrep -x greenclip > /dev/null || greenclip daemon >/dev/null &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+restart nm-applet
+restart blueman-applet
+restart dunst
+restart birdtray
+pkill kdeconnect-indi; kdeconnect-indicator >/dev/null &
+pkill greenclip; greenclip daemon >/dev/null &
+
 ~/.local/bin/mount_karl.sh
 ssh -D 9090 -fN ywa
 
-pkill sxhkd
-sxhkd &
+restart sxhkd
 
 # hsetroot -solid "#2E2641"
 ~/.fehbg
@@ -28,8 +28,7 @@ polybar bar1 &
 
 xsetroot -cursor_name left_ptr
 
-# pkill -q picom
-# picom &
+# restart picom
 
 # Monitors
 bspc monitor DP-0 -d 11 12 13 14 15
