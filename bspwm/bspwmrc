@@ -38,6 +38,7 @@ bspc monitor DP-2 -d 21 22 23 24 25
 bspc config pointer_modifier mod4
 bspc config pointer_action1 move
 bspc config pointer_action2 resize_corner
+bspc config click_to_focus any
 
 # Settings
 bspc config normal_border_color     "#44475a"
@@ -58,3 +59,6 @@ bspc config automatic_scheme alternate
 bspc config ignore_ewmh_focus true
 bspc config directional_focus_tightness low
 # bspc config swallow_first_click true
+
+bspc rule -a Pavucontrol state=floating
+
