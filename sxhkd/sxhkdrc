@@ -7,7 +7,8 @@ super + d
     dmenu_run
 super + Tab
     ~/.config/bspwm/hidden_menu 
-    # rofi -modi window -show window -icon-theme Papirus -show-icons
+super + shift + Tab
+    rofi -modi window -show window -icon-theme Papirus -show-icons
 
 XF86Audio{RaiseVolume,LowerVolume}
     pactl set-sink-volume @DEFAULT_SINK@ {+,-}2%
@@ -38,7 +39,7 @@ super + shift + r
 #
 
 # quit/restart bspwm
-super + alt + {q,r}
+super + + ctrl + alt + {q,r}
     bspc {quit,wm -r}
 
 # close and kill
