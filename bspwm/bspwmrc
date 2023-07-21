@@ -6,16 +6,19 @@ restart() {
 
 nvidia-settings --load-config-only
 numlockx
+# openrgb -p 1
+
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 restart nm-applet
 restart blueman-applet
 restart dunst
 restart birdtray
 pkill kdeconnect-indi; kdeconnect-indicator >/dev/null &
-pkill greenclip; greenclip daemon >/dev/null &
+# pkill greenclip; greenclip daemon >/dev/null &
+pkill copyq; copyq --start-server &
 
-~/.local/bin/mount_karl.sh
-ssh -D 9090 -fN ywa
+~/.local/bin/mount_karl.sh &
+ssh -D 9090 -fN ywa &
 
 restart sxhkd
 
@@ -60,5 +63,8 @@ bspc config ignore_ewmh_focus true
 bspc config directional_focus_tightness low
 # bspc config swallow_first_click true
 
+# bspc config pointer_motion_interval 8
+
 bspc rule -a Pavucontrol state=floating
+bspc rule -a copyq state=floating
 

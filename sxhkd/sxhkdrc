@@ -22,8 +22,12 @@ XF86Audio{Prev,Play,Next}
 Print
     ~/.local/bin/screenshot.x11
 
+# rofi -modi "clipboard:greenclip print" -show clipboard
+# ~/.config/sxhkd/copyq-rofi.sh select
 super + alt + v
-    rofi -modi "clipboard:greenclip print" -show clipboard
+    copyq show
+# super + alt + d
+#     ~/.config/sxhkd/copyq-rofi.sh remove
 
 super + shift + s
     ~/.config/bspwm/bsp-layout-rofi
