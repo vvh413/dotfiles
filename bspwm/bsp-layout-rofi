@@ -1,4 +1,4 @@
 #!/bin/sh
 
-layout=`bsp-layout layouts | rofi -dmenu -p "layout"`
+layout=$(bsp-layout layouts | rofi -dmenu -p "layout")
 bsp-layout set $layout
