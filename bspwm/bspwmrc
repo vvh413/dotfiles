@@ -1,8 +1,8 @@
 #! /bin/sh
 
 restart() {
-	pkill "$1"
-	$1 >/dev/null &
+  pkill "$1"
+  $1 >/dev/null &
 }
 
 nvidia-settings --load-config-only
