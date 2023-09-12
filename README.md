@@ -3,8 +3,8 @@ Configs for bspwm, sxhkd and polybar
 
 ## Link
 ```sh
-ln -s ./bspwm/ ../bspwm/
-ln -s ./polybar/ ../polybar/
-ln -s ./rofi/ ../rofi/
-ln -s ./sxhkd/ ../sxhkd/
+ln -s $PWD/bspwm/ ~/.config/bspwm
+ln -s $PWD/polybar/ ~/.config/polybar
+ln -s $PWD/rofi/ ~/.config/rofi
+ln -s $PWD/sxhkd/ ~/.config/sxhkd
 ```
