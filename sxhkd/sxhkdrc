@@ -21,6 +21,8 @@ XF86Audio{Prev,Play,Next}
 
 Print
     ~/.local/bin/screenshot.x11
+ctrl + Print
+    flameshot gui
 
 # rofi -modi "clipboard:greenclip print" -show clipboard
 # ~/.config/sxhkd/copyq-rofi.sh select
