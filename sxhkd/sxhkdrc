@@ -1,5 +1,5 @@
 super + Return
-    alacritty
+    wezterm
 
 super + shift + Return
     rofi -modi drun -show drun -icon-theme Papirus -show-icons
