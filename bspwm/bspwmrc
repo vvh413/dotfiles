@@ -9,6 +9,18 @@ nvidia-settings --load-config-only
 numlockx
 # openrgb -p 1
 
+restart sxhkd
+
+# hsetroot -solid "#2E2641"
+~/.fehbg
+
+polybar-msg cmd quit >/dev/null 2>&1
+polybar bar0 &
+polybar bar1 &
+
+xsetroot -cursor_name left_ptr
+
+# restart picom
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 restart nm-applet
 restart blueman-applet
@@ -22,19 +34,6 @@ copyq --start-server &
 
 ~/.local/bin/mount_karl.sh &
 ssh -D 9090 -fN ywa-vpn &
-
-restart sxhkd
-
-# hsetroot -solid "#2E2641"
-~/.fehbg
-
-polybar-msg cmd quit >/dev/null 2>&1
-polybar bar0 &
-polybar bar1 &
-
-xsetroot -cursor_name left_ptr
-
-# restart picom
 
 # Monitors
 bspc monitor DP-0 -d 11 12 13 14 15
