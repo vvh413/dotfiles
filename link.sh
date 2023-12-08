@@ -1,15 +1,10 @@
 #!/bin/sh
 
-DIRS=(
-  bspwm
-  mpv
-  polybar
-  rofi
-  sxhkd
-  wezterm
-)
+CONFIG_DIR=$HOME/.config
 
-for dir in ${DIRS[@]}; do
-  mv ~/.config/$dir ~/.config/$dir-bak 2>/dev/null
-  ln -s $PWD/$dir ~/.config/$dir
+for dir in $(ls -d */ | tr -d '/'); do
+  if [ ! -L "$CONFIG_DIR/$dir" ]; then
+    [ -d "$CONFIG_DIR/$dir" ] && mv "$CONFIG_DIR/$dir" "$CONFIG_DIR/$dir-bak"
+    ln -s "$PWD/$dir" "$CONFIG_DIR/$dir"
+  fi
 done
