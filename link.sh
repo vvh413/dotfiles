@@ -2,6 +2,7 @@
 
 DIRS=(
   bspwm
+  mpv
   polybar
   rofi
   sxhkd
