@@ -1,49 +1,3 @@
-super + Return
-    wezterm
-
-super + shift + Return
-    rofi -modi drun -show drun -icon-theme Papirus -show-icons -drun-show-actions
-super + d
-    dmenu_run
-super + Tab
-    ~/.config/bspwm/hidden_menu 
-super + shift + Tab
-    rofi -modi window -show window -icon-theme Papirus -show-icons
-
-XF86Audio{RaiseVolume,LowerVolume}
-    pactl set-sink-volume @DEFAULT_SINK@ {+,-}2%
-XF86AudioMute
-    pactl set-sink-mute @DEFAULT_SINK@ toggle
-shift + Pause
-    pactl set-source-mute @DEFAULT_SOURCE@ toggle
-XF86Audio{Prev,Play,Next}
-    playerctl {previous,play-pause,next}
-
-Print
-    ~/.local/bin/screenshot.x11
-ctrl + Print
-    flameshot gui
-
-# rofi -modi "clipboard:greenclip print" -show clipboard
-# ~/.config/sxhkd/copyq-rofi.sh select
-super + alt + v
-    copyq show
-# super + alt + d
-#     ~/.config/sxhkd/copyq-rofi.sh remove
-
-super + shift + s
-    ~/.config/bspwm/bsp-layout-rofi
-
-super + alt + l
-    XSECURELOCK_BACKGROUND_COLOR="#2E2641" xsecurelock
-
-super + alt + r
-    pkill -USR1 -x sxhkd
-
-#
-# bspwm hotkeys
-#
-
 # quit/restart bspwm
 super + + ctrl + alt + {q,r}
     bspc {quit,wm -r}
@@ -51,6 +5,7 @@ super + + ctrl + alt + {q,r}
 # close and kill
 super + {_,shift + }q
     bspc node -{c,k}
+# xkill
 super + alt + x
     xkill
 
@@ -78,8 +33,12 @@ super + {t,shift + t,s,f}
 super + ctrl + {m,x,y,z}
     bspc node -g {marked,locked,sticky,private}
 
+# hide node
 super + grave
     bspc node -g hidden=on
+# hidden menu
+super + Tab
+    ~/.config/bspwm/hidden_menu
 
 #
 # focus/swap
@@ -88,10 +47,13 @@ super + grave
 # focus the node in the given direction
 super + {h,j,k,l}
     bspc node -f {west,south,north,east}
+# focus the node in the given direction
 super + {Left,Down,Up,Right}
     bspc node -f {west,south,north,east}
+# move the node in the given direction
 super + shift + {h,j,k,l}
     ~/.config/bspwm/bspwm_smart_move {west,south,north,east}
+# move the node in the given direction
 super + shift + {Left,Down,Up,Right}
     ~/.config/bspwm/bspwm_smart_move {west,south,north,east}
 
@@ -116,6 +78,7 @@ super + {o,i}
 # focus or send to the given desktop
 super + {_,shift + }{1-5}
     bspc {desktop -f,node -d} '1{1-5}'
+# focus or send to the given desktop
 alt + {_,shift + }{1-5}
     bspc {desktop -f,node -d} '2{1-5}'
 
@@ -126,6 +89,7 @@ alt + {_,shift + }{1-5}
 # preselect the direction
 super + ctrl + {h,j,k,l}
     bspc node -p {west,south,north,east}
+# preselect the direction
 super + ctrl + {Left,Down,Up,Right}
     bspc node -p {west,south,north,east}
 
@@ -148,16 +112,20 @@ super + ctrl + shift + space
 # expand a window by moving one of its side outward
 super + alt + {h,j,k,l}
     bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+# expand a window by moving one of its side outward
 super + alt + {Left,Down,Up,Right}
     bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
 # contract a window by moving one of its side inward
 super + alt + shift + {h,j,k,l}
     bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+# contract a window by moving one of its side inward
 super + alt + shift + {Left,Down,Up,Right}
     bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
+# rotate clockwise
 super + r
     bspc node @parent -R 90
+# rotate anti-clockwise
 super + shift + r
     bspc node @parent -R 270

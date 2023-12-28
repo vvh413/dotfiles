@@ -9,7 +9,8 @@ nvidia-settings --load-config-only
 numlockx
 # openrgb -p 1
 
-restart sxhkd
+pkill sxhkd
+sxhkd -c ~/.config/sxhkd/sxhkdrc.d/* &
 
 # hsetroot -solid "#2E2641"
 ~/.fehbg
@@ -33,7 +34,7 @@ pkill copyq
 copyq --start-server &
 
 ~/.local/bin/mount_karl.sh &
-ssh -D 9090 -fN ywa-vpn &
+# ssh -D 9090 -fN ywa-vpn &
 
 # Monitors
 bspc monitor DP-0 -d 11 12 13 14 15

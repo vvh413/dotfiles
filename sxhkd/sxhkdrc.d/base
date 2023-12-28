@@ -1,0 +1,54 @@
+# open terminal
+super + Return
+    wezterm
+
+# rofi drun
+super + shift + Return
+    rofi -modi drun -show drun -icon-theme Papirus -show-icons -drun-show-actions
+# dmenu
+super + d
+    dmenu_run
+
+# opened windows
+super + shift + Tab
+    rofi -modi window -show window -icon-theme Papirus -show-icons
+
+# volume control
+XF86Audio{RaiseVolume,LowerVolume}
+    pactl set-sink-volume @DEFAULT_SINK@ {+,-}2%
+# mute
+XF86AudioMute
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
+# mute mic
+shift + Pause
+    pactl set-source-mute @DEFAULT_SOURCE@ toggle
+# playback control
+XF86Audio{Prev,Play,Next}
+    playerctl {previous,play-pause,next}
+
+# screenshot
+Print
+    ~/.local/bin/screenshot.x11
+# screenshot with flameshot
+ctrl + Print
+    flameshot gui
+
+# show copyq
+super + alt + v
+    copyq show
+
+# show pre-configured bspwm layouts
+super + shift + s
+    ~/.config/bspwm/bsp-layout-rofi
+
+# lock screen
+super + alt + l
+    XSECURELOCK_BACKGROUND_COLOR="#2E2641" xsecurelock
+
+# reload sxhkd
+super + alt + r
+    pkill -USR1 -x sxhkd
+
+# sxhkd menu
+super + F1
+    ~/.config/sxhkd/sxhkd-help.sh
