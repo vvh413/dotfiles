@@ -1,0 +1,4 @@
+[submodule "config/common/nvim"]
+  path = config/common/nvim
+  url = https://github.com/vvh413/lazyvim.git
+  branch = main

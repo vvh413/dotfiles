@@ -21,6 +21,8 @@ link_dir() {
   done
 }
 
+git submodule update --init --recursive 1>/dev/null
+
 link_dir config/common "$HOME/.config"
 link_dir config/x11 "$HOME/.config"
 # link_dir config/wayland "$HOME/.config"
