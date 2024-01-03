@@ -1,6 +1,6 @@
 # dotfiles
 
-## Link
+## Bootstrap
 ```sh
-./link.sh
+./bootstrap.sh
 ```
