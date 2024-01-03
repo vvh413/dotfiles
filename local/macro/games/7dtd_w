@@ -1,0 +1,4 @@
+#!/usr/bin/xdotool
+
+search --name "7 Days To Die"
+keydown --window %@ shift+w

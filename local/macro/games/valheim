@@ -1,0 +1,4 @@
+#!/usr/bin/xdotool
+
+search --name "Valheim"
+key --window %@ a

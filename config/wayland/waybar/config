@@ -1,0 +1,158 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 36,
+
+  "modules-left": [
+    "hyprland/workspaces",
+  ],
+  "modules-center": [],
+  "modules-right": [
+    "custom/media",
+    "custom/space",
+    "hyprland/language",
+    "custom/space",
+    "memory",
+    "custom/space",
+    "pulseaudio#out",
+    "pulseaudio#mic",
+    "custom/space",
+    "tray",
+    "custom/space",
+    // "clock#1",
+    "clock#2",
+    "clock#3",
+    "custom/logout",
+  ],
+
+  "custom/space": {
+    "format": " ",
+    "tooltip": false
+  },
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "persistent-workspaces": {
+      "DP-1": [11, 12, 13, 14, 15],
+      "DP-2": [21, 22, 23, 24, 25],
+    },
+    "format-icons": {
+      "urgent": "",
+      "active": "",
+      "default": ""
+    }
+  },
+  
+  "clock#1": {
+    "interval": 1,
+    "format": " {:%a}",
+    "tooltip": false,
+    "on-click": "gsimplecal"
+  },
+  "clock#2": {
+    "interval": 1,
+    "format": " {:%d/%m/%y}",
+    "tooltip": false,
+    "on-click": "gsimplecal"
+  },
+  "clock#3": {
+    "interval": 1,
+    "format": " {:%H:%M:%S}",
+    "tooltip": false,
+    "on-click": "gsimplecal"
+  },
+
+  "pulseaudio#out": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "{icon}  {volume}%",
+    "format-muted": "",
+    "format-icons": {
+      "headphones": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "default": [
+        "",
+        ""
+      ]
+    },
+    "scroll-step": 2,
+    "on-scroll-up": "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%+",
+    "on-scroll-down": "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%-",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "pavucontrol",
+  }, 
+
+  "pulseaudio#mic": {
+    "format": "{format_source}",
+    "format-source":  " {volume}%",
+    "format-source-muted": "",
+    "scroll-step": 2,
+    "on-scroll-up": "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SOURCE@ 2%+",
+    "on-scroll-down": "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SOURCE@ 2%-",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+    "on-click-right": "pavucontrol",
+  }, 
+
+  "memory": {
+    "interval": 1,
+    "format": " {percentage}%",
+    "on-click": "kitty -e htop"
+  },
+
+  "battery": {
+    "interval": 2,
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+      "format-charging": " {capacity}%",
+      "format-plugged": " {capacity}%",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+
+  "custom/media": {
+    "format": "{icon} {}",
+    "format-alt": "{icon}",
+    "format-alt-click": "click-middle",
+    "tooltip": true,
+    "return-type": "json",
+    "max-length": 40,
+    "format-icons": {
+      "Playing": "",
+      "Paused": ""
+    },
+    "escape": true,
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl stop",
+    "on-scroll-up": "playerctl volume 0.02+",
+    "on-scroll-down": "playerctl volume 0.02-",
+    "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
+  },
+    
+  "hyprland/language": {
+    "format": "{}",
+    "format-en": "us",
+    "format-ru": "ru",
+    "on-click": "",
+  },
+
+  "custom/logout": {
+    "format": "",
+    "on-click": "wlogout"
+  },
+
+  "tray": {
+    "icon-size": 18,
+    "spacing": 10
+  }
+}

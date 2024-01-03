@@ -1,0 +1,80 @@
+
+* {
+  /*border: 1px;*/
+  font-family: Font Awesome;
+  font-size: 16px;
+  /*border-radius: 20px;*/
+}
+
+window#waybar {
+  background-color: rgba(0, 0, 0, 0);
+  color: #eeeeee;
+  border-top: 1px solid black
+}
+
+label {
+  padding: 0px 4px;
+}
+
+#custom-space {
+  color: transparent;
+  background: transparent;
+}
+
+#custom-dismiss_notifications {
+    background-color: #cc0e0e;
+    color: #ffffff;
+}
+
+
+#custom-menu, #memory, #pulseaudio, #clock, #tray,
+#custom-media, #taskbar, #workspaces,
+#custom-browser, #custom-terminal, #language
+{
+  background-color: rgba(0, 0, 0, 0.9);
+  padding-right: 10px;
+  padding-left: 10px;
+  color: violet;
+}
+
+#taskbar button {
+  color: violet;
+}
+
+/*#*/
+/*#clock.1 {
+    color: #ffcf7c;
+}*/
+
+#workspaces button {
+  padding: 0 2px;
+  color: #fdf6e3;
+}
+#workspaces button.active {
+  color: violet;
+}
+
+#custom-logout {
+  padding: 0 10px;
+  background: #1a1a1a;
+  opacity: 0.7;
+}
+
+
+/*#battery:not(.charging)
+  { background-color: green
+  }
+#battery.good:not(.charging)
+  { background-color: #26A65B
+  }
+#battery.medium:not(.charging)
+  { background-color: yellow
+  }
+#battery.warning:not(.charging)
+  { background-color: orange
+  }
+#battery.charging
+  { background-color: #028AE5
+  }
+#battery { color: #8fbcbb; }
+#battery.critical:not(.charging) { color: #bf616a; }*/

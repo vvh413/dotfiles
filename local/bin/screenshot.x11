@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+FILENAME=/media/c/pic/_screens/$(date +%Y%m%d%H%M%S).png
+
+#scrot -s -b -z -f -l style=solid,width=3,color="magenta" $FILENAME
+menyoki capture --root --size $(slop -q -c 1,0,1,1 -b 2) png save $FILENAME
+xclip -sel clip -t image/png -i $FILENAME

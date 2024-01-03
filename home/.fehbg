@@ -1,0 +1,2 @@
+#!/bin/sh
+feh --no-fehbg --bg-tile '/home/vvh413/Pictures/pizdec.png' 

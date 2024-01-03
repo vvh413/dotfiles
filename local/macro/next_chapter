@@ -1,0 +1,7 @@
+#!/usr/bin/xdotool
+
+sleep 0.5
+key Right
+sleep 0.5
+mousemove 3300 160
+click 1

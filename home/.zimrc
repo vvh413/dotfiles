@@ -1,0 +1,48 @@
+# Start configuration added by Zim install {{{
+#
+# This is not sourced during shell startup, and it's only used to configure the
+# zimfw plugin manager.
+#
+
+#
+# Modules
+#
+
+zmodule environment
+zmodule git
+zmodule input
+zmodule utility
+
+zmodule archive
+zmodule fzf
+
+#
+# Prompt
+#
+
+zmodule duration-info
+zmodule git-info
+zmodule prompt-pwd
+
+zmodule asciiship
+# zmodule https://gitlab.com/Spriithy/basher.git
+# zmodule joke/zim-starship
+# zmodule magicmace
+# zmodule bira
+
+#
+# Completion
+#
+
+zmodule zsh-users/zsh-completions --fpath src
+zmodule completion
+
+#
+# Modules that must be initialized last
+#
+
+zmodule zsh-users/zsh-syntax-highlighting
+zmodule zsh-users/zsh-history-substring-search
+zmodule zsh-users/zsh-autosuggestions
+# }}} End configuration added by Zim install
+

@@ -1,0 +1,9 @@
+# next chapter
+XF86Tools
+    ~/.local/macro/next_chapter
+# initial layout
+super + F2
+    ~/.local/macro/init.sh
+# open private window to left
+super + F3
+    ~/.local/macro/private_to_left.sh
