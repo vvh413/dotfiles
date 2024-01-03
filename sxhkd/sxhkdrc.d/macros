@@ -1,0 +1,9 @@
+# next chapter
+XF86Tools
+    ~/dev/macros/next_chapter
+# initial layout
+super + F2
+    ~/dev/macros/init.sh
+# open private window to left
+super + F3
+    ~/dev/macros/private_to_left.sh

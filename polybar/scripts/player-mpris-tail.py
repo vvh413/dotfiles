@@ -87,8 +87,7 @@ class PlayerManager:
             if self.busNameIsAPlayer(bus_name)
         ]
         for player_bus_name in player_bus_names:
-            player_bus_owner = self._session_bus.get_name_owner(
-                player_bus_name)
+            player_bus_owner = self._session_bus.get_name_owner(player_bus_name)
             if owner == player_bus_owner:
                 return player_bus_name
 
@@ -320,8 +319,7 @@ class Player:
         # so we can't be sure the interface still exists
         try:
             self.status = str(
-                self._getProperty(
-                    "org.mpris.MediaPlayer2.Player", "PlaybackStatus")
+                self._getProperty("org.mpris.MediaPlayer2.Player", "PlaybackStatus")
             ).lower()
             self.updateIcon()
             self.checkPositionTimer()
@@ -366,8 +364,7 @@ class Player:
             _length = _getProperty(self._metadata, "xesam:length", 0) or _getProperty(
                 self._metadata, "mpris:length", 0
             )
-            _length_int = _length if type(
-                _length) is int else int(float(_length))
+            _length_int = _length if type(_length) is int else int(float(_length))
             _fmt_length = (  # Formats using h:mm:ss if length > 1 hour, else m:ss
                 f"{_length_int/1e6//60:.0f}:{_length_int/1e6%60:02.0f}"
                 if _length_int < 3600 * 1e6
@@ -462,8 +459,7 @@ class Player:
 
     def refreshPosition(self):
         try:
-            time_us = self._getProperty(
-                "org.mpris.MediaPlayer2.Player", "Position")
+            time_us = self._getProperty("org.mpris.MediaPlayer2.Player", "Position")
         except dbus.exceptions.DBusException:
             time_us = 0
 
@@ -532,7 +528,8 @@ class Player:
                 )
                 try:
                     metadata["percent"] = str(
-                        round(self._getPosition() / metadata["duration_int"] * 10e7))
+                        round(self._getPosition() / metadata["duration_int"] * 10e7)
+                    )
                 except KeyError:
                     metadata["percent"] = ""
             # replace metadata tags in text
@@ -679,8 +676,7 @@ parser.add_argument("--icon-stopped", default="⏹")
 parser.add_argument("--icon-none", default="")
 args = parser.parse_args()
 
-FORMAT_STRING = re.sub(r"%\{(.*?)\}(.*?)%\{(.*?)\}",
-                       r"􏿿p􏿿\1􏿿p􏿿\2􏿿p􏿿\3􏿿p􏿿", args.format)
+FORMAT_STRING = re.sub(r"%\{(.*?)\}(.*?)%\{(.*?)\}", r"􏿿p􏿿\1􏿿p􏿿\2􏿿p􏿿\3􏿿p􏿿", args.format)
 NEEDS_POSITION = "{position}" in FORMAT_STRING or "{percent}" in FORMAT_STRING
 
 TRUNCATE_STRING = args.truncate_text
@@ -718,8 +714,7 @@ else:
             "\n".join(
                 sorted(
                     [
-                        "{} : {}".format(player.bus_name.split(".")[
-                                         3], player.status)
+                        "{} : {}".format(player.bus_name.split(".")[3], player.status)
                         for player in player_manager.players.values()
                     ]
                 )
