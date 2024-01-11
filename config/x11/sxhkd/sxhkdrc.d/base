@@ -13,19 +13,6 @@ super + d
 super + shift + Tab
     rofi -modi window -show window -icon-theme Papirus -show-icons
 
-# volume control
-XF86Audio{RaiseVolume,LowerVolume}
-    pactl set-sink-volume @DEFAULT_SINK@ {+,-}2%
-# mute
-XF86AudioMute
-    pactl set-sink-mute @DEFAULT_SINK@ toggle
-# mute mic
-shift + Pause
-    pactl set-source-mute @DEFAULT_SOURCE@ toggle
-# playback control
-XF86Audio{Prev,Play,Next}
-    playerctl {previous,play-pause,next}
-
 # screenshot
 Print
     ~/.local/bin/screenshot.x11
