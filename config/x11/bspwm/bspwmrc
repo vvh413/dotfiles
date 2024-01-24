@@ -22,7 +22,6 @@ polybar bar1 &
 
 xsetroot -cursor_name left_ptr
 
-# restart picom
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 restart nm-applet
 restart blueman-applet
@@ -30,7 +29,6 @@ restart dunst
 restart birdtray
 pkill kdeconnect-indi
 kdeconnect-indicator >/dev/null &
-# pkill greenclip; greenclip daemon >/dev/null &
 pkill copyq
 copyq --start-server &
 
