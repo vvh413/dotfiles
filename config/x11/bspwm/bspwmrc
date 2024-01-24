@@ -1,13 +1,14 @@
 #! /bin/sh
 
 restart() {
-  pkill "$1"
-  $1 >/dev/null &
+	pkill "$1"
+	$1 >/dev/null &
 }
 
 nvidia-settings --load-config-only
 numlockx
 # openrgb -p 1
+pactl load-module module-switch-on-connect
 
 pkill sxhkd
 sxhkd -c ~/.config/sxhkd/sxhkdrc.d/* &

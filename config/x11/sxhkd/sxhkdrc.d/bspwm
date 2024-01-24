@@ -132,3 +132,7 @@ super + r
 # rotate anti-clockwise
 super + shift + r
     bspc node @parent -R 270
+
+# resize by setting split ration for parent node
+super + alt + {1-9}
+    bspc node @parent -r 0.{1-9}
