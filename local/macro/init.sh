@@ -2,10 +2,10 @@
 
 firefox &
 sleep 1
-bspc node -f west
+# bspc node -f west
 bspc node -d 21
 bspc node -p west
-bspc node -o 0.3
+bspc node -o 0.282
 wezterm &
 sleep 0.5
 bspc desktop -f 21
