@@ -28,5 +28,7 @@ link_dir config/x11 "$HOME/.config"
 # link_dir config/wayland "$HOME/.config"
 
 link_dir home "$HOME"
+
+mkdir -p "$HOME/.local/bin"
 link_dir local/bin "$HOME/.local/bin"
 link_ "$PWD/local/macro" "$HOME/.local/macro"
