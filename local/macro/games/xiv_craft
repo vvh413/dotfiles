@@ -1,0 +1,15 @@
+#!/usr/bin/xdotool
+
+mousemove 1323 1007
+sleep 0.2
+mousedown 1
+sleep 0.2
+mouseup 1
+sleep 2
+
+mousemove 1969 1347
+sleep 0.2
+mousedown 1
+sleep 0.2
+mouseup 1
+sleep 43
