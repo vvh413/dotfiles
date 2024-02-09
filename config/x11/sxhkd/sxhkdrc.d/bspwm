@@ -136,3 +136,7 @@ super + shift + r
 # resize by setting split ration for parent node
 super + alt + {1-9}
     bspc node @parent -r 0.{1-9}
+
+# Move to layer
+super + alt + {b,n,a}
+    bspc node -l {below,normal,above}
