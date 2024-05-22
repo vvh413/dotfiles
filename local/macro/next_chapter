@@ -4,5 +4,5 @@ sleep 0.5
 key Right
 sleep 1
 # mousemove 3297 159
-mousemove 3297 73
+mousemove 3243 73
 click 1
