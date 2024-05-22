@@ -71,3 +71,4 @@ bspc config directional_focus_tightness low
 
 bspc rule -a Pavucontrol state=floating
 bspc rule -a copyq state=floating
+bspc rule -a TelegramDesktop state=floating desktop=21
