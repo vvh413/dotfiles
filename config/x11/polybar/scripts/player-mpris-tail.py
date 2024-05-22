@@ -13,6 +13,7 @@ from gi.repository import GLib
 
 DBusGMainLoop(set_as_default=True)
 
+MAX_TTTLE_LEN = 50
 
 FORMAT_STRING = "{icon} {artist} - {title}"
 FORMAT_REGEX = re.compile(
@@ -386,7 +387,7 @@ class Player:
             )
             self.metadata["title"] = re.sub(
                 SAFE_TAG_REGEX, """\1\1""", _metadataGetFirstItem(_title)
-            )
+            )[:MAX_TTTLE_LEN]
             self.metadata["track"] = _track
             self.metadata["genre"] = re.sub(
                 SAFE_TAG_REGEX, """\1\1""", _metadataGetFirstItem(_genre)
@@ -395,7 +396,7 @@ class Player:
             self.metadata["date"] = re.sub(SAFE_TAG_REGEX, """\1\1""", _date)
             self.metadata["year"] = re.sub(SAFE_TAG_REGEX, """\1\1""", _year)
             self.metadata["url"] = _url
-            self.metadata["filename"] = os.path.basename(_url)
+            self.metadata["filename"] = os.path.basename(_url)[:MAX_TTTLE_LEN]
             self.metadata["length"] = _length_int
             self.metadata["fmt-length"] = _fmt_length
             self.metadata["cover"] = re.sub(
