@@ -1,0 +1,140 @@
+#!/usr/bin/env bash
+
+hc() {
+	herbstclient "$@"
+}
+
+hc emit_hook reload
+
+xsetroot -solid '#5A8E3A'
+xsetroot -cursor_name left_ptr
+
+restart() {
+	pkill "$1"
+	$1 >/dev/null &
+}
+
+nvidia-settings --load-config-only
+numlockx
+# openrgb -p 1
+
+pkill sxhkd
+sxhkd -c ~/.config/sxhkd/sxhkdrc.d/* ~/.config/sxhkd/wm/herstluftwm &
+
+# hsetroot -solid "#2E2641"
+~/.fehbg
+
+polybar-msg cmd quit >/dev/null 2>&1
+# polybar bar-note &
+polybar bar0 &
+polybar bar1 &
+
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+restart nm-applet
+restart blueman-applet
+restart dunst
+restart birdtray
+pkill kdeconnect-indi
+kdeconnect-indicator >/dev/null &
+pkill copyq
+copyq --start-server &
+
+~/.local/bin/mount_karl.sh &
+
+Mod=Mod4 # Super
+
+hc keyunbind --all
+
+hc set default_frame_layout grid
+# tags
+mon1_tags=(1{1..5})
+mon2_tags=(1{1..5})
+# fallback_tags=({1..5})
+# tag_keys=({1..9} 0)
+
+hc rename default "${mon1_tags[0]}" || true
+for tag in "${mon1_tags[@]}" "${mon2_tags[@]}" ; do
+	hc try silent add "$tag"
+done
+
+hc keybind $Mod-Shift-d set_attr clients.focus.decorated toggle
+
+# mouse
+hc mouseunbind --all
+hc mousebind $Mod-Button1 move
+hc mousebind $Mod-Button2 zoom
+hc mousebind $Mod-Button3 resize
+
+hc keybind $Mod-i jumpto urgent
+
+# theme
+hc attr theme.tiling.reset 1
+hc attr theme.floating.reset 1
+hc set frame_border_active_color '#222222'
+hc set frame_border_normal_color '#101010'
+hc set frame_bg_active_color '#bd93f9'
+hc set frame_bg_normal_color '#44475a'
+hc set frame_border_width 1
+hc set show_frame_decorations focused_if_multiple
+hc set frame_bg_transparent on
+hc set frame_transparent_width 5
+hc set frame_gap 4
+
+hc attr theme.title_when one_tab
+hc attr theme.title_height 15
+hc attr theme.title_font 'Dejavu Sans:pixelsize=12'
+# hc attr theme.title_font '-*-fixed-medium-r-*-*-13-*-*-*-*-*-*-*'
+hc attr theme.title_depth 3
+hc attr theme.title_color '#000000'
+hc attr theme.normal.title_color '#000000'
+hc attr theme.active.tab_title_color '#000000'
+
+hc attr theme.active.color '#bd93f9'
+hc attr theme.normal.color '#44475a'
+hc attr theme.urgent.color '#ff0000'
+hc attr theme.tab_color '#1F1F1F'
+hc attr theme.active.tab_color '#ae41aa'
+hc attr theme.active.tab_outer_color '#ae41aa'
+
+hc attr theme.inner_color black
+hc attr theme.active.inner_color '#bd93f9'
+hc attr theme.normal.inner_color '#44475a'
+hc attr theme.urgent.inner_color '#ff0000'
+# copy inner color to outer_color
+for state in active urgent normal; do
+	hc substitute C theme.${state}.inner_color \
+		attr theme.${state}.outer_color C
+done
+hc attr theme.tiling.outer_width 1
+hc attr theme.background_color '#141414'
+
+hc attr theme.border_width 3
+hc attr theme.floating.border_width 4
+hc attr theme.floating.outer_color black
+hc attr theme.floating.outer_width 1
+hc attr theme.inner_width 1
+
+hc set window_gap 0
+hc set frame_padding 0
+hc set smart_window_surroundings off
+hc set smart_frame_surroundings on
+hc set mouse_recenter_gap 0
+hc set swap_monitors_to_get_tag false
+hc set update_dragged_clients true
+
+# rules
+hc unrule -F
+hc rule focus=on
+hc rule floatplacement=smart
+hc rule fixedsize floating=on
+hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' floating=on
+hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
+hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
+
+hc rule class~'(pavucontrol|copyq)' floating=on
+hc rule class='TelegramDesktop' floating=on monitor=1
+
+hc set tree_style '╾│ ├└╼─┐'
+
+hc detect_monitors
+hc unlock

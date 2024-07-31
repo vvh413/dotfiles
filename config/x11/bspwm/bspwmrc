@@ -8,10 +8,9 @@ restart() {
 nvidia-settings --load-config-only
 numlockx
 # openrgb -p 1
-pactl load-module module-switch-on-connect
 
 pkill sxhkd
-sxhkd -c ~/.config/sxhkd/sxhkdrc.d/* &
+sxhkd -c ~/.config/sxhkd/sxhkdrc.d/* ~/.config/sxhkd/wm/bspwm &
 
 # hsetroot -solid "#2E2641"
 ~/.fehbg
@@ -69,6 +68,6 @@ bspc config directional_focus_tightness low
 
 # bspc config pointer_motion_interval 8
 
-bspc rule -a Pavucontrol state=floating
+bspc rule -a pavucontrol state=floating
 bspc rule -a copyq state=floating
 bspc rule -a TelegramDesktop state=floating desktop=21
