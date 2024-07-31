@@ -4,3 +4,6 @@ export LESS="$LESS -+F"
 
 source $HOME/.nnn
 . "$HOME/.cargo/env"
+
+alias zed='zeditor'
+alias hc='herbstclient'
