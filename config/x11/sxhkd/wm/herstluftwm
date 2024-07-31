@@ -17,9 +17,9 @@ super + {t,f,s}
 # minimize
 super + grave
     herbstclient set_attr clients.focus.minimized true
-# last minimized
+# minimized menu
 super + Tab
-    herbstclient bring last-minimized
+    ~/.config/herbstluftwm/minimized_menu.sh
 
 #
 # focus/swap
@@ -88,7 +88,6 @@ super + alt + {1-9}
 # remove frame
 super + r
     herbstclient remove
-
 # explode
 super + e
     herbstclient split explode
