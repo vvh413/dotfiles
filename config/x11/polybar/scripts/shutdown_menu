@@ -127,7 +127,7 @@ menu=(
   [Suspend]="systemctl suspend"
   [Halt]="systemctl halt"
   [Lock]="XSECURELOCK_BACKGROUND_COLOR=${BG_COLOR} xsecurelock"
-  [Logout]="bspc quit"
+  [Logout]="herbstclient quit"
   [Cancel]=""
 )
 menu_nrows=${#menu[@]}
