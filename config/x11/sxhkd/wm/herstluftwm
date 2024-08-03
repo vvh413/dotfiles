@@ -70,18 +70,21 @@ super + {1-5}
 alt + {1-5}
     herbstclient chain . focus_monitor 1 . use '2{1-5}'
 
+super + alt + r
+    herbstclient rotate
+
 #
 # preselect
 #
 
-# preselect the direction
+# split frame
 super + ctrl + {h,j,k,l}
     herbstclient split {left,bottom,top,right} 0.5
-# preselect the direction
+# split frame
 super + ctrl + {Left,Down,Up,Right}
     herbstclient split {left,bottom,top,right} 0.5
 
-# preselect the ratio
+# split the ratio
 super + alt + {1-9}
     herbstclient split right 0.{1-9}
 
