@@ -1,3 +1,3 @@
 #!/bin/sh
 
-yay -Sy - < pkglist.txt
+yay -Sy - <pkglist.txt

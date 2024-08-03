@@ -1,4 +1,4 @@
-#!/bin/env sh
+#!/bin/env bash
 
 minimized() {
   herbstclient foreach CLIENT clients. \
@@ -8,14 +8,14 @@ minimized() {
 }
 
 titles() {
-  a=( $@ )
+  a=($@)
   for client in ${a[@]}; do
     herbstclient get_attr "clients.$client.title"
   done
 }
 
-clients=( $(minimized) )
-sel=$( titles "${clients[@]}" | rofi -dmenu -i -format i -p "Minimized clients")
+clients=($(minimized))
+sel=$(titles "${clients[@]}" | rofi -dmenu -i -format i -p "Minimized clients")
 
 if [[ -n "$sel" ]]; then
   herbstclient bring ${clients[$sel]}
