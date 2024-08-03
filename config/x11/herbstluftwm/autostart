@@ -1,18 +1,19 @@
 #!/usr/bin/env bash
 
 hc() {
-	herbstclient "$@"
+  herbstclient "$@"
+}
+
+restart() {
+  pkill "$1"
+  $1 >/dev/null &
 }
 
 hc emit_hook reload
+killall -q herbstclient
 
 xsetroot -solid '#5A8E3A'
 xsetroot -cursor_name left_ptr
-
-restart() {
-	pkill "$1"
-	$1 >/dev/null &
-}
 
 nvidia-settings --load-config-only
 numlockx
@@ -24,11 +25,6 @@ sxhkd -c ~/.config/sxhkd/sxhkdrc.d/* ~/.config/sxhkd/wm/herstluftwm &
 # hsetroot -solid "#2E2641"
 ~/.fehbg
 
-polybar-msg cmd quit >/dev/null 2>&1
-# polybar bar-note &
-polybar bar0 &
-polybar bar1 &
-
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 restart nm-applet
 restart blueman-applet
@@ -39,6 +35,7 @@ kdeconnect-indicator >/dev/null &
 pkill copyq
 copyq --start-server &
 
+killall -q sshfs
 ~/.local/bin/mount_karl.sh &
 
 Mod=Mod4 # Super
@@ -47,15 +44,21 @@ hc keyunbind --all
 
 hc set default_frame_layout grid
 # tags
-mon1_tags=(1{1..5})
-mon2_tags=(2{1..5})
-# fallback_tags=({1..5})
-# tag_keys=({1..9} 0)
+tags=(11 21 1{2..5} 2{2..5})
 
-hc rename default "${mon1_tags[0]}" || true
-for tag in "${mon1_tags[@]}" "${mon2_tags[@]}"; do
-	hc try silent add "$tag"
+hc rename default "${tags[0]}" || true
+for tag in "${tags[@]}"; do
+  hc try silent add "$tag"
 done
+
+polybar-msg cmd quit
+killall -q polybar
+# polybar bar-note &
+polybar bar0 &
+bar0_pid=$!
+polybar bar1 &
+bar1_pid=$!
+~/.config/herbstluftwm/tag_changed_listener.sh $bar0_pid $bar1_pid &
 
 hc keybind $Mod-Shift-d set_attr clients.focus.decorated toggle
 
@@ -72,7 +75,7 @@ hc attr theme.tiling.reset 1
 hc attr theme.floating.reset 1
 hc set frame_border_active_color '#222222'
 hc set frame_border_normal_color '#101010'
-hc set frame_bg_active_color '#bd93f9'
+hc set frame_bg_active_color '#ae41aa'
 hc set frame_bg_normal_color '#44475a'
 hc set frame_border_width 1
 hc set show_frame_decorations focused_if_multiple
@@ -84,7 +87,7 @@ hc attr theme.title_when one_tab
 hc attr theme.title_height 15
 hc attr theme.title_depth 3
 
-hc attr theme.active.color '#bd93f9'
+hc attr theme.active.color '#ae41aa'
 hc attr theme.normal.color '#44475a'
 hc attr theme.urgent.color '#ff0000'
 hc attr theme.tab_color '#1F1F1F'
@@ -92,12 +95,12 @@ hc attr theme.active.title_color '#000000'
 hc attr theme.normal.title_color '#ffffff'
 
 hc attr theme.inner_color black
-hc attr theme.active.inner_color '#bd93f9'
+hc attr theme.active.inner_color '#ae41aa'
 hc attr theme.normal.inner_color '#44475a'
 hc attr theme.urgent.inner_color '#ff0000'
 for state in active urgent normal; do
-	hc substitute C theme.${state}.inner_color \
-		attr theme.${state}.outer_color C
+  hc substitute C theme.${state}.inner_color \
+    attr theme.${state}.outer_color C
 done
 hc attr theme.tiling.outer_width 1
 hc attr theme.background_color '#141414'
