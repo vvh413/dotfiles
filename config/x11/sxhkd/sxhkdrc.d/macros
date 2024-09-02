@@ -1,9 +1,9 @@
 # next chapter
 XF86Tools
-    ~/.local/macro/next_chapter
+  ~/.local/macro/next_chapter
 # initial layout
 super + F2
-    ~/.local/macro/init.sh
+  ~/.local/macro/init_bspwm.sh
 # open private window to left
 super + F3
-    ~/.local/macro/private_to_left.sh
+  ~/.local/macro/private_to_left.sh

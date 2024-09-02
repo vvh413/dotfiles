@@ -1,10 +1,10 @@
 # quit/restart herbstluftwm
 super + ctrl + alt + {q,r}
-    herbstclient {quit,reload}
+  herbstclient {quit,reload}
 
 # close_and_remove and close
 super + {_,shift + }q
-    herbstclient {close_and_remove,close}
+  herbstclient {close_and_remove,close}
 
 #
 # state/flags
@@ -12,105 +12,101 @@ super + {_,shift + }q
 
 # set the window state
 super + {t,f,s}
-    herbstclient {pseudotile,fullscreen,set_attr clients.focus.floating toggle} toggle
+  herbstclient {pseudotile,fullscreen,set_attr clients.focus.floating toggle} toggle
 
 # minimize
 super + grave
-    herbstclient set_attr clients.focus.minimized true
+  herbstclient set_attr clients.focus.minimized true
 # minimized menu
 super + Tab
-    ~/.config/herbstluftwm/minimized_menu.sh
+  ~/.config/herbstluftwm/minimized_menu.sh
 
 #
 # focus/swap
 #
 
 # focus the node in the given direction
-super + {h,j,k,l}
-    herbstclient focus {left,down,up,right}
+# super + {h,j,k,l}
+#   herbstclient focus {left,down,up,right}
 # focus the node in the given direction
 super + {Left,Down,Up,Right}
-    herbstclient focus {left,down,up,right}
-# move the node in the given direction
-super + shift + {h,j,k,l}
-    herbstclient shift {left,down,up,right}
-# move the node in the given direction
-super + shift + {Left,Down,Up,Right}
-    herbstclient shift {left,down,up,right}
-
-# focus the node for the given path jumpa
-super + {p,b,comma,period}
-    bspc node -f @{parent,brother,first,second}
+  herbstclient focus {left,down,up,right}
 
 # focus the next/previous window in the current desktop
 super + {_,shift + }w
-    herbstclient cycle_all {+,-}1
+  herbstclient cycle_all {+,-}1
 # cycle
 super + c
-    herbstclient cycle
+  herbstclient cycle
 
 # focus the next/previous desktop in the current monitor
 super + bracket{left,right}
-    herbstclient use_index {-,+}1 --skip-visible
+  herbstclient use_index {-,+}1 --skip-visible
 
 # cycle monitor
 super + BackSpace
-    herbstclient cycle_monitor
+  herbstclient cycle_monitor
 
 # focus or send to the given desktop
 super + {ctrl + ,shift + }{1-5}
-    herbstclient {use,move} '1{1-5}'
+  herbstclient {use,move} '1{1-5}'
 # focus or send to the given desktop
 alt + {ctrl + ,shift + }{1-5}
-    herbstclient {use,move} '2{1-5}'
+  herbstclient {use,move} '2{1-5}'
 # focus tag on specific monitor desktop
 super + {1-5}
-    herbstclient chain . focus_monitor 0 . use '1{1-5}'
+  herbstclient chain . focus_monitor 0 . use '1{1-5}'
 # focus tag on specific monitor desktop
 alt + {1-5}
-    herbstclient chain . focus_monitor 1 . use '2{1-5}'
+  herbstclient chain . focus_monitor 1 . use '2{1-5}'
 
 super + alt + r
-    herbstclient rotate
+  herbstclient rotate
 
 #
 # preselect
 #
 
 # split frame
-super + ctrl + {h,j,k,l}
-    herbstclient split {left,bottom,top,right} 0.5
+# super + ctrl + {h,j,k,l}
+#   herbstclient split {left,bottom,top,right} 0.5
 # split frame
 super + ctrl + {Left,Down,Up,Right}
-    herbstclient split {left,bottom,top,right} 0.5
+  herbstclient split {left,bottom,top,right} 0.5
 
 # split the ratio
 super + alt + {1-9}
-    herbstclient split right 0.{1-9}
+  herbstclient split right 0.{1-9}
 
 # remove frame
 super + r
-    herbstclient remove
+  herbstclient remove
 # explode
 super + e
-    herbstclient split explode
+  herbstclient split explode
 
 #
 # move/resize
 #
+# move the node in the given direction
+# super + shift + {h,j,k,l}
+#   herbstclient shift {left,down,up,right}
+# move the node in the given direction
+super + shift + {Left,Down,Up,Right}
+  herbstclient shift {left,down,up,right}
 
 # expand a window by moving one of its side outward
 super + alt + {h,j,k,l}
-    herbstclient resize {left +0.02,down +0.02,up +0.02,right +0.02}
+  herbstclient resize {left +0.02,down +0.02,up +0.02,right +0.02}
 # expand a window by moving one of its side outward
 super + alt + {Left,Down,Up,Right}
-    herbstclient resize {left +0.02,down +0.02,up +0.02,right +0.02}
+  herbstclient resize {left +0.02,down +0.02,up +0.02,right +0.02}
 
 # rotate clockwise
 super + shift + r
-    herbstclient or , and . compare tags.focus.curframe_wcount = 2 \
-	      . cycle_layout +1 vertical horizontal max vertical grid \
-	      , cycle_layout +1
+  herbstclient or , and . compare tags.focus.curframe_wcount = 2 \
+	    . cycle_layout +1 vertical horizontal max vertical grid \
+	    , cycle_layout +1
 
 # sticky
 super + shift + s

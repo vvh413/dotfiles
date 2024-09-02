@@ -1,45 +1,41 @@
 # open terminal
 super + Return
-    wezterm
+  wezterm start --always-new-process
 
 # rofi drun
 super + shift + Return
-    rofi -modi drun -show drun -icon-theme Papirus -show-icons -drun-show-actions
+  rofi -modi drun -show drun -icon-theme Papirus -show-icons -drun-show-actions
 # dmenu
 super + d
-    dmenu_run
+  dmenu_run
 
 # opened windows
 super + shift + Tab
-    rofi -modi window -show window -icon-theme Papirus -show-icons
+  rofi -modi window -show window -icon-theme Papirus -show-icons
 
 # screenshot
 Print
-    ~/.local/bin/screenshot.x11
+  ~/.local/bin/screenshot.x11
 # screenshot with flameshot
 ctrl + Print
-    flameshot gui
+  flameshot gui
 
 # show copyq
 super + alt + v
-    copyq show
-
-# show pre-configured bspwm layouts
-super + shift + s
-    ~/.config/bspwm/bsp-layout-rofi
+  copyq show
 
 # lock screen
 super + alt + l
-    XSECURELOCK_BACKGROUND_COLOR="#2E2641" xsecurelock
+  XSECURELOCK_BACKGROUND_COLOR="#2E2641" xsecurelock
 
 # reload sxhkd
 super + ctrl + shift + r
-    pkill -USR1 -x sxhkd && notify-send 'sxhkd' 'Reloaded config'
+  pkill -USR1 -x sxhkd && notify-send 'sxhkd' 'Reloaded config'
 
 # sxhkd menu
 super + F1
-    ~/.config/sxhkd/sxhkd-help.sh
+  ~/.config/sxhkd/sxhkd-help.sh
 
 # xkill
 super + alt + x
-    xkill
+  xkill
