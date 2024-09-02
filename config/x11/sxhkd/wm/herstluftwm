@@ -111,3 +111,7 @@ super + shift + r
     herbstclient or , and . compare tags.focus.curframe_wcount = 2 \
 	      . cycle_layout +1 vertical horizontal max vertical grid \
 	      , cycle_layout +1
+
+# sticky
+super + shift + s
+  herbstclient attr clients.focus.sticky toggle
