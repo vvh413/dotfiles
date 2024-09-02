@@ -1,42 +1,18 @@
 #!/usr/bin/env bash
 
 hc() {
-  herbstclient "$@"
-}
-
-restart() {
-  pkill "$1"
-  $1 >/dev/null &
+	herbstclient "$@"
 }
 
 hc emit_hook reload
 killall -q herbstclient
 
-xsetroot -solid '#5A8E3A'
-xsetroot -cursor_name left_ptr
-
-nvidia-settings --load-config-only
-numlockx
-# openrgb -p 1
-
 pkill sxhkd
 sxhkd -c ~/.config/sxhkd/sxhkdrc.d/* ~/.config/sxhkd/wm/herstluftwm &
 
-# hsetroot -solid "#2E2641"
-~/.fehbg
+~/.local/bin/startup.sh &
 
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-restart nm-applet
-restart blueman-applet
-restart dunst
-restart birdtray
-pkill kdeconnect-indi
-kdeconnect-indicator >/dev/null &
-pkill copyq
-copyq --start-server &
-
-killall -q sshfs
-~/.local/bin/mount_karl.sh &
+###
 
 Mod=Mod4 # Super
 
@@ -48,9 +24,10 @@ tags=(11 21 1{2..5} 2{2..5})
 
 hc rename default "${tags[0]}" || true
 for tag in "${tags[@]}"; do
-  hc try silent add "$tag"
+	hc try silent add "$tag"
 done
 
+hc set auto_detect_panels true
 polybar-msg cmd quit
 killall -q polybar
 # polybar bar-note &
@@ -99,8 +76,8 @@ hc attr theme.active.inner_color '#ae41aa'
 hc attr theme.normal.inner_color '#44475a'
 hc attr theme.urgent.inner_color '#ff0000'
 for state in active urgent normal; do
-  hc substitute C theme.${state}.inner_color \
-    attr theme.${state}.outer_color C
+	hc substitute C theme.${state}.inner_color \
+		attr theme.${state}.outer_color C
 done
 hc attr theme.tiling.outer_width 1
 hc attr theme.background_color '#141414'
