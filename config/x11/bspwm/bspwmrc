@@ -1,39 +1,10 @@
 #! /bin/sh
 
-restart() {
-  pkill "$1"
-  $1 >/dev/null &
-}
-
-nvidia-settings --load-config-only
-numlockx
-# openrgb -p 1
-
 pkill sxhkd
 sxhkd -c ~/.config/sxhkd/sxhkdrc.d/* ~/.config/sxhkd/wm/bspwm &
 
-# hsetroot -solid "#2E2641"
-~/.fehbg
-
-polybar-msg cmd quit >/dev/null 2>&1
-# polybar bar-note &
-polybar bar0 &
-polybar bar1 &
-
-xsetroot -cursor_name left_ptr
-
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-restart nm-applet
-restart blueman-applet
-restart dunst
-restart birdtray
-pkill kdeconnect-indi
-kdeconnect-indicator >/dev/null &
-pkill copyq
-copyq --start-server &
-
-~/.local/bin/mount_karl.sh &
-# ssh -D 9090 -fN ywa-vpn &
+~/.config/polybar/start.sh &
+~/.local/bin/startup.sh &
 
 # Monitors
 # bspc monitor eDP-1 -d 1 2 3 4 5
@@ -61,7 +32,7 @@ bspc config borderless_monocle false
 bspc config gapless_monocle true
 
 bspc config single_monocle true
-bspc config automatic_scheme alternate
+bspc config automatic_scheme longest_side
 bspc config ignore_ewmh_focus true
 bspc config directional_focus_tightness low
 # bspc config swallow_first_click true
