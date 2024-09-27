@@ -5,7 +5,6 @@ restart() {
 	$1 >/dev/null &
 }
 
-xsetroot -solid '#db4698'
 xsetroot -cursor_name left_ptr
 
 nvidia-settings --load-config-only
