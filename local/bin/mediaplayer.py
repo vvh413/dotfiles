@@ -80,8 +80,8 @@ def on_metadata(player, metadata, manager, output_format: OutputFormat):
     title = player.get_title()
     if (
         player.props.player_name == "spotify"
-        and "mpris:trackid" in metadata.keys()
-        and ":ad:" in player.props.metadata["mpris:trackid"]
+        and isinstance(metadata, dict)
+        and ":ad:" in player.props.metadata.get("mpris:trackid", "")
     ):
         track_info = "AD PLAYING"
     elif artist not in ("", None) and title != "":
