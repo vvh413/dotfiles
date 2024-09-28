@@ -136,7 +136,7 @@
     "on-click-right": "playerctl stop",
     "on-scroll-up": "playerctl volume 0.02+",
     "on-scroll-down": "playerctl volume 0.02-",
-    "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
+    "exec": "$HOME/.local/bin/mediaplayer.py --json 2> /dev/null"
   },
     
   "hyprland/language": {
