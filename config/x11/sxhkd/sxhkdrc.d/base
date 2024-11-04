@@ -26,7 +26,8 @@ super + alt + v
 
 # lock screen
 super + alt + l
-  XSECURELOCK_BACKGROUND_COLOR="#2E2641" xsecurelock
+  i3lock -c 2e2641
+  # XSECURELOCK_BACKGROUND_COLOR="#2e2641" xsecurelock
 
 # reload sxhkd
 super + ctrl + shift + r

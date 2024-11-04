@@ -119,13 +119,14 @@ fi
 typeset -A menu
 
 # Menu with keys/commands
+# XSECURELOCK_BACKGROUND_COLOR=${BG_COLOR} xsecurelock
 menu=(
 	[Shutdown]="systemctl poweroff"
 	[Reboot]="systemctl reboot"
 	[Hibernate]="systemctl hibernate"
 	[Suspend]="systemctl suspend"
 	[Halt]="systemctl halt"
-	[Lock]="XSECURELOCK_BACKGROUND_COLOR=${BG_COLOR} xsecurelock"
+	[Lock]="i3lock -c 2E2641"
 	[Logout]="kill -9 -1"
 	[Cancel]=""
 )
