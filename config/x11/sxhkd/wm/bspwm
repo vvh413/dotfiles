@@ -75,6 +75,9 @@ super + {_,shift + }{1-5}
 # focus or send to the given desktop
 alt + {_,shift + }{1-5}
   bspc {desktop -f,node -d} '2{1-5}'
+# focus or send to the virtual desktop
+alt + ctrl + {_,shift + }{1-5}
+  bspc {desktop -f,node -d} '3{1-5}'
 
 #
 # preselect
