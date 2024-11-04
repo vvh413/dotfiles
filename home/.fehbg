@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-tile '/home/vvh413/Pictures/pizdec.png' 
+feh --no-fehbg --bg-tile '/home/vvh413/dotfiles/home/Pictures/diamond.png'
