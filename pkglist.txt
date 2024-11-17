@@ -25,6 +25,7 @@ fd
 feh
 ffmpeg
 firefox
+fish
 freerdp
 fzf
 gnome-keyring
@@ -61,6 +62,7 @@ pamixer
 pavucontrol
 pigz
 playerctl
+polkit-gnome
 polybar
 python-dbus
 remmina
@@ -73,6 +75,7 @@ rustup
 seahorse
 slop
 sshfs
+starship
 telegram-desktop
 thunderbird
 tomb
@@ -90,6 +93,8 @@ unzip
 wezterm
 wireguard-tools
 xclip
+xdg-desktop-portal
+xdg-desktop-portal-gtk
 xdotool
 xorg-xev
 xorg-xkill
