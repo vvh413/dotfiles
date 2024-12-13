@@ -1,4 +1,5 @@
 format = """
+$status\
 $username\
 $hostname\
 $directory\
@@ -44,3 +45,7 @@ style = "yellow"
 [python]
 format = "[$virtualenv]($style) "
 style = "bright-black"
+
+[status]
+format = '[\[$status\]]($style) '
+disabled = false
