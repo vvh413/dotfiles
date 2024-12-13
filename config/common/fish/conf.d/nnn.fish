@@ -1,4 +1,4 @@
-set COPY_PATH 'c:!echo "$PWD/$nnn" | xclip -sel c'
+set COPY_PATH 'c:!echo -n "$PWD/$nnn" | xclip -sel c'
 set COPY_IMAGE 'i:!convert $nnn png:- | xclip -sel clipboard -t image/png*'
 set PLAY_AUDIO 'a:!pw-play $nnn'
 set EDIT_SUDO 'e:-!sudo -E nvim $nnn*'
