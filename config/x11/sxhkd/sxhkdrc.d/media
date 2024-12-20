@@ -7,6 +7,9 @@ XF86AudioMute
 # mute mic
 shift + Pause
   pactl set-source-mute @DEFAULT_SOURCE@ toggle
+# mute mic
+XF86AudioMicMute
+  pactl set-source-mute @DEFAULT_SOURCE@ toggle
 # playback control
 XF86Audio{Prev,Play,Stop,Next}
   playerctl {previous,play-pause,stop,next}
