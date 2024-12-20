@@ -10,3 +10,7 @@ shift + Pause
 # playback control
 XF86Audio{Prev,Play,Stop,Next}
   playerctl {previous,play-pause,stop,next}
+
+# process volume
+{XF86Back,XF86Forward,Cancel}
+  ~/.local/bin/process_volume.sh {dec,inc,toggle}
