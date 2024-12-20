@@ -1,6 +1,3 @@
-# next chapter
-XF86Tools
-  ~/.local/macro/next_chapter
 # initial layout
 super + F2
   ~/.local/macro/init_bspwm.sh
