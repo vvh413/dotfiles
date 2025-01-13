@@ -25,7 +25,7 @@ get_volume() {
 }
 
 get_app_name() {
-	get_param $1 "application.name" | sed 's/^.* = "\(.*\)"/\1/'
+	get_param $1 "application.name|node.name" | sed 's/^.* = "\(.*\)"/\1/'
 }
 
 command_selection() {
@@ -61,8 +61,8 @@ done < <(pactl list sink-inputs | grep -oP "(Sink Input .*|application\.process\
 
 if [ "$current_pid" == "" ]; then
 	current_sink=$(pactl list sink-inputs |
-		grep -E "(Sink Input|application.name = )" |
-		grep -m1 -B1 -P 'application.name = "(?!speech-dispatcher)' |
+		grep -E "(Sink Input|node.name = )" |
+		grep -m1 -B1 -P 'node.name = "(?!speech-dispatcher)' |
 		head -1 |
 		sed -rn 's/^Sink Input #(.*)/\1/p')
 	[ "$current_sink" != "" ] && command_selection "$current_sink" "$1"
