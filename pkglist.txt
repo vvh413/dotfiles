@@ -43,7 +43,6 @@ less
 lib32-fontconfig
 lxappearance
 man-db
-mcfly
 menyoki
 mpv
 mpv-mpris
@@ -75,7 +74,6 @@ rustup
 seahorse
 slop
 sshfs
-starship
 telegram-desktop
 thunderbird
 tomb
@@ -103,5 +101,3 @@ xsecurelock
 xtitle
 yt-dlp
 zoxide
-zsh
-zsh-syntax-highlighting
