@@ -10,14 +10,3 @@ show_symlink = true
 scrolloff = 5
 mouse_events = ["click", "scroll"]
 title_format = "Yazi: {cwd}"
-
-[plugin]
-prepend_previewers = [
-  # Archive previewer
-  { mime = "application/*zip", run = "ouch" },
-  { mime = "application/x-tar", run = "ouch" },
-  { mime = "application/x-bzip2", run = "ouch" },
-  { mime = "application/x-7z-compressed", run = "ouch" },
-  { mime = "application/x-rar", run = "ouch" },
-  { mime = "application/x-xz", run = "ouch" },
-]

@@ -14,6 +14,11 @@ run = "plugin smart-enter"
 desc = "Enter the child directory, or open the file"
 
 [[manager.prepend_keymap]]
+on = "<Right>"
+run = "plugin smart-enter"
+desc = "Enter the child directory, or open the file"
+
+[[manager.prepend_keymap]]
 on = ["m", "d"]
 run = "linemode size_and_mtime"
 desc = "Linemode: size_and_mtime"
@@ -50,11 +55,6 @@ run = "plugin open-with-cmd --args=block"
 desc = "Open with command in the terminal"
 
 [[manager.prepend_keymap]]
-on = ["C"]
-run = "plugin ouch --args=zip"
-desc = "Compress with ouch"
-
-[[manager.prepend_keymap]]
 on = ["g", "l"]
 run = "plugin lazygit"
 desc = "run lazygit"
@@ -74,3 +74,8 @@ on = "<C-n>"
 run = '''
 	shell 'wezterm start --always-new-process --cwd "$PWD"'
 '''
+
+[[manager.prepend_keymap]]
+on = ["c", "a"]
+run = "plugin compress"
+desc = "Archive selected files"

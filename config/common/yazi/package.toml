@@ -4,9 +4,9 @@ deps = [
   { use = "yazi-rs/plugins:hide-preview", rev = "02d18be" },
   { use = "yazi-rs/plugins:chmod", rev = "02d18be" },
   { use = "Ape/open-with-cmd", rev = "a80d1cf" },
-  { use = "ndtoan96/ouch", rev = "b869886" },
   { use = "Lil-Dank/lazygit", rev = "c82794f" },
   { use = "AnirudhG07/plugins-yazi:copy-file-contents", rev = "9c309b5" },
+  { use = "KKV9/compress", rev = "60b24af" },
 ]
 
 [flavor]
