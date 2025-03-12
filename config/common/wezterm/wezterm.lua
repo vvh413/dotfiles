@@ -43,5 +43,7 @@ config.mouse_bindings = {
 	},
 }
 
+config.enable_wayland = false
+
 -- and finally, return the configuration to wezterm
 return config
