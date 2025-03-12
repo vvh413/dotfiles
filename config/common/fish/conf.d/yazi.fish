@@ -8,4 +8,4 @@ function y
     rm -f -- "$tmp"
 end
 
-bind -M insert \cy y
+bind -M insert ctrl-y y
