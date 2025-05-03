@@ -5,8 +5,8 @@ restart() {
 	$1 >/dev/null &
 }
 
-pkill syndaemon
-syndaemon -i 1.0 -t -K -R &
+# pkill syndaemon
+# syndaemon -i 1.0 -t -K -R &
 
 xsetroot -cursor_name left_ptr
 
