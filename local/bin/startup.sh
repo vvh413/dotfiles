@@ -13,6 +13,8 @@ xsetroot -cursor_name left_ptr
 nvidia-settings --load-config-only
 numlockx
 # openrgb -p 1
+# pkill picom
+# picom -b
 
 # hsetroot -solid "#2E2641"
 ~/.fehbg
@@ -32,3 +34,5 @@ killall -q sshfs
 
 pkill automount.sh
 ~/.local/bin/automount.sh &
+
+~/backup.sh &
