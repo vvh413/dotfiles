@@ -1,0 +1,5 @@
+# increase brightness
+XF86MonBrightness{Down,Up}
+  brightnessctl set {10%-,+10%}; \
+  b=$(math "$(brightnessctl get) / $(brightnessctl max) * 100") \
+  notify-send -t 1000 -r 1234 "brightness" $b% -h int:value:$b -h string:hlcolor:#ff00ff
