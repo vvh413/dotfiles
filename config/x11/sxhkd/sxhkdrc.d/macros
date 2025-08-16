@@ -1,6 +1,6 @@
 # initial layout
-super + F2
+super + F5
   ~/.local/macro/init_bspwm.sh
 # open private window to left
-super + F3
-  ~/.local/macro/private_to_left.sh
+# super + F3
+#   ~/.local/macro/private_to_left.sh
