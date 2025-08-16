@@ -35,4 +35,4 @@ killall -q sshfs
 pkill automount.sh
 ~/.local/bin/automount.sh &
 
-~/backup.sh &
+~/backup-pbs.sh &
