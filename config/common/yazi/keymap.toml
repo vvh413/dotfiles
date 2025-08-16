@@ -1,81 +1,81 @@
 "$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = "k"
 run = "plugin arrow -1"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = "j"
 run = "plugin arrow 1"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = "l"
 run = "plugin smart-enter"
 desc = "Enter the child directory, or open the file"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = "<Right>"
 run = "plugin smart-enter"
 desc = "Enter the child directory, or open the file"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = ["m", "d"]
 run = "linemode size_and_mtime"
 desc = "Linemode: size_and_mtime"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = "!"
 run = 'shell "$SHELL" --block'
 desc = "Open shell here"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = "<A-d>"
 run = '''
 	shell 'dragon-drop -x -a -T "$@"'
 '''
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = "T"
-run = "plugin hide-preview"
-desc = "Hide or show preview"
+run = "plugin toggle-pane min-preview"
+desc = "Toggle preview"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = ["c", "m"]
 run = "plugin chmod"
 desc = "Chmod on selected files"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = "o"
 run = "plugin open-with-cmd"
 desc = "Open with command"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = "<C-o>"
 run = "plugin open-with-cmd block"
 desc = "Open with command in the terminal"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = ["g", "l"]
 run = "plugin lazygit"
 desc = "run lazygit"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = "<A-y>"
 run = ["plugin copy-file-contents"]
 desc = "Copy contents of file"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = ["g", "m"]
 run = "cd /media"
 desc = "Goto /media"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = "<C-n>"
 run = '''
 	shell 'wezterm start --always-new-process --cwd "$PWD"'
 '''
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = ["c", "a"]
 run = "plugin compress"
 desc = "Archive selected files"

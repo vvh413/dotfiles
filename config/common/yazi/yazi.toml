@@ -1,6 +1,6 @@
 "$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
 
-[manager]
+[mgr]
 ratio = [0, 4, 3]
 sort_by = "natural"
 sort_sensitive = false
@@ -10,3 +10,9 @@ show_symlink = true
 scrolloff = 5
 mouse_events = ["click", "scroll"]
 title_format = "Yazi: {cwd}"
+
+# [opener]
+# lowriter = [{ run = 'lowriter "$@"', block = true }]
+#
+# [open]
+# rules = [{ name = "*.docx", use = "lowriter" }]
